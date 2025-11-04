@@ -66,5 +66,6 @@ MIT
 ## 📫 Contact
 
 - **Email:** [mutahhar.you@gmail.com](mailto:mutahhar.you@gmail.com)  
-- **LinkedIn:** [Mutahher Naseer](linkedin.com/in/mutahher-naseer-30778b220)
+- **LinkedIn:** [Mutahher Naseer](https://www.linkedin.com/in/mutahher-naseer-30778b220)
+
 

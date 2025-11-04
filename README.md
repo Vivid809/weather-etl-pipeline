@@ -1,54 +1,70 @@
-# Weather ETL Project
+# Weather ETL Pipeline ⛅
 
-## What It Does
-The Weather ETL Project extracts, transforms, and loads weather data from various sources into a centralized database. It aims to provide a comprehensive and accurate dataset for weather analysis and forecasting.
+A small ETL that fetches **current weather** from the Open-Meteo API, transforms the response, loads it into **SQLite** (`weather.db`), and exports a consolidated **CSV** (`weather_data.csv`).
 
-## Technologies Used
-- **Python**: The primary programming language used for the ETL process.
-- **APIs**: To retrieve weather data from multiple sources.
-- **SQLite**: A lightweight database for storing the transformed data.
-- **Pandas**: For data manipulation and analysis.
-- **YAML**: For configuration settings.
+> **Status:** working demo — intentionally lightweight for portfolio use.
 
-## About
-This project was created as a personal practice project to enhance skills in data engineering and ETL processes.
+---
 
-## Installation
-1. Clone the repository:
-    ```bash
-    git clone https://github.com/yourusername/weather_etl_project.git
-    ```
-2. Navigate to the project directory:
-    ```bash
-    cd weather_etl_project
-    ```
-3. Install the required dependencies:
-    ```bash
-    pip install -r requirements.txt
-    ```
+## What it does
 
-## Usage
-1. Configure the data sources and database settings in the `config.yaml` file.
-2. Run the ETL process:
-    ```bash
-    python etl.py
-    ```
+- **Extract** current weather for **London** from Open-Meteo.
+- **Transform** to a compact schema (`city`, `temperature`, `weathercode`, `time`).
+- **Load** into `weather.db` (`weather` table), appending each run.
+- **Export** all rows to `weather_data.csv`.
 
-## Project Structure
-- `etl.py`: Main script to run the ETL process.
-- `config.yaml`: Configuration file for data sources and database settings.
-- `extract/`: Directory containing data extraction scripts.
-- `transform/`: Directory containing data transformation scripts.
-- `load/`: Directory containing data loading scripts.
-- `tests/`: Directory containing test cases.
+---
 
-## Contributing
-Contributions are welcome! Please fork the repository and create a pull request with your changes.
+## Tech
+
+- Python, `requests`, `pandas`, `sqlite3`
+- Open-Meteo API (no key required)
+
+---
+
+## Quick start
+
+```bash
+git clone https://github.com/Vivid809/weather-etl-pipeline.git
+cd weather-etl-pipeline
+pip install pandas requests
+python main.py
+```
+
+## Outputs:
+
+weather.db — SQLite database with table weather
+
+weather_data.csv — all recorded snapshots
+
+##Project Structure
+
+```bash
+weather-etl-pipeline/
+├─ main.py
+├─ weather.db           # created on run (can be git-ignored)
+├─ weather_data.csv     # created on run (can be git-ignored)
+└─ README.md
+```
+
+## Notes & improvements
+
+The table includes a windspeed column; you can add it to the insert if needed.
+
+Re-running the script appends a new row with the latest snapshot — useful for time series tracking.
+
+To avoid committing data files, add this to .gitignore:
+
+weather.db
+weather_data.csv
+
 
 ## License
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-## Contact
-For any questions or suggestions, please contact mutahhar.you@gmail.com
+MIT
 
-#Python #DataEngineer #ETL
+## 📫 Contact
+
+- **Email:** [mutahhar.you@gmail.com](mailto:mutahhar.you@gmail.com)  
+- **LinkedIn:** [Mutahher Naseer](https://www.linkedin.com/in/mutahhernaseer)
+
